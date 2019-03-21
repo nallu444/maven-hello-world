@@ -13,9 +13,9 @@
     <annotatedJdk>${org.checkerframework:jdk8:jar}</annotatedJdk>
   </properties>
         <scm>
-           <connection>scm:git:https://github.com/nallu444/maven-hello-world.git</connection>
-           <url>https://github.com/nallu444/maven-hello-world.git</url>
-           <developerConnection>scm:git:https://github.com/nallu444/maven-hello-world.git</developerConnection>
+          <connection>scm:git:https://github.com/nallu444/maven-hello-world.git</connection>
+          <url>https://github.com/nallu444/maven-hello-world.git</url>
+          <developerConnection>scm:git:https://github.com/nallu444/maven-hello-world.git</developerConnection>
         </scm>
         <distributionManagement>
             <repository>
