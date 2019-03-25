@@ -21,12 +21,12 @@
       <repository>
           <id>central</id>
           <name>ip-172-31-27-43-releases</name>
-          <url>http://54.153.100.192:8081/artifactory/m2-releases</url>
+          <url>http://:8081/artifactory/m2-releases</url>
       </repository>
       <snapshotRepository>
           <id>snapshots</id>
           <name>ip-172-31-27-43-snapshots</name>
-          <url>http://54.153.100.192:8081/artifactory/m2-snapshot</url>
+          <url>http://:8081/artifactory/m2-snapshot</url>
       </snapshotRepository>
    </distributionManagement>
   
