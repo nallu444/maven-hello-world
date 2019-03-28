@@ -29,7 +29,7 @@
           <url>http://18.144.61.48:8081/artifactory/m2-snapshot</url>
       </snapshotRepository>
    </distributionManagement>
-  
+  <!-- -->
    <dependencies>
      <dependency>
        <groupId>junit</groupId>
