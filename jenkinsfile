@@ -4,7 +4,7 @@ pipeline {
         maven 'Maven3.2.1' 
           }
     stages { 
-        stage('Build') { 
+        stage('Build.m2') { 
                            steps {
                                    dir('/var/lib/jenkins/workspace/pipeline/my-app'){
                                    sh 'mvn clean install'
@@ -12,6 +12,49 @@ pipeline {
                                  }
                        }
            }
-         }
+           
+           stage('Build.m2-snapshot') { 
+                           steps {
+                           rtServer {
+                                  serverId: "Artifactory-1",
+    url: "http://52.53.251.228:8081",
+    // If you're using username and password:
+    username: "user",
+    password: "jfrog1990"
+    // If you're using Credentials ID:
+    //credentialsId: 'ccrreeddeennttiiaall'
+    // If Jenkins is configured to use an http proxy, you can bypass the proxy when using this Artifactory server:
+   // bypassProxy: true
+    // Configure the connection timeout (in seconds).
+    // The default value (if not configured) is 300 seconds:
+    //timeout = 300
+                     }
+             stage(upload) {
+                             serverId: "Artifactory-1",
+                             spec:
+                                    """{
+                                        "files": [
+                                                 {
+                                                    "pattern": "**/target/*.jar",
+                                                    "target": "libs-snapshot-local"
+                                                 }, 
+                                                 {
+                                                    "pattern": "**/target/*.pom",
+                                                    "target": "libs-snapshot-local"
+                                                 }, 
+                                                 {
+                                                    "pattern": "**/target/*.war",
+                                                    "target": "libs-snapshot-local"
+                                                 }
+                                                 ]
+                                        }"""
+                              }
+    }
+    }
+    }
+           
+           
+           
+   }
 
 /* pipelinescript*/
